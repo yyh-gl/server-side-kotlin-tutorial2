@@ -1,10 +1,14 @@
 package com.example.serversidekotlintutorial2
 
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RestController
 
-@RestController
+@Controller
 class HomeController {
     @GetMapping("")
-    fun index(): String = "Hello!"
+    fun index(model: Model): String {
+        model.addAttribute("message", "hello Kotlin!")
+        return "home"
+    }
 }
